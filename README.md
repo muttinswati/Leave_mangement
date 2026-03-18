@@ -1,76 +1,49 @@
-# Leave_mangement
+# Leave Management System (LMS) Automation
 
-Overview
+## Overview
+This project automates the **faculty leave management process** for educational institutions. It streamlines class substitutions, email notifications, and administrative approvals, reducing manual work and ensuring that all classes are properly assigned when a teacher is on leave.
 
-This project automates the faculty leave management process for educational institutions. It streamlines class substitutions, email notifications, and administrative approvals, reducing manual work and ensuring that all classes are properly assigned when a teacher is on leave.
+**Key Features:**
+- Detects leave requests sent via Gmail automatically.
+- Identifies unassigned classes and finds substitute teachers.
+- Sends detailed email notifications to both the **HOD** and the teacher on leave.
+- Allows the HOD to **approve or reject** the substitution.
+  - If **approved**, the leave teacher is notified with the final class assignments.
+  - If **rejected**, the HOD manually reassigns classes.
+- Maintains a record of assigned and unassigned classes for reporting.
 
-Key Features:
+## Workflow (High-Level)
+1. Teacher sends a **leave request via Gmail**.
+2. System fetches the email and extracts:
+   - Teacher’s email
+   - Leave date
+   - Reason for leave
+3. Queries the database to identify **vacant classes**.
+4. Finds eligible **substitute teachers** and sends class allocation emails.
+5. **Collects confirmations** from substitutes.
+6. Sends **HOD approval email** with:
+   - List of assigned and unassigned classes
+   - Details of substitutes for each class
+   - Approve/Reject buttons
+7. Based on HOD response:
+   - If approved → leave teacher receives final assignment confirmation.
+   - If rejected → HOD manually handles reassignments.
 
-Detects leave requests sent via Gmail automatically.
+## Technologies Used
+- **Python** – Automation, email handling, and backend logic
+- **MySQL** – Database for teacher, timetable, and class records
+- **Gmail IMAP** – Automatic email retrieval and parsing
 
-Identifies unassigned classes and finds substitute teachers.
-
-Sends detailed email notifications to both the HOD and the teacher on leave.
-
-Allows the HOD to approve or reject the substitution.
-
-If approved, the leave teacher is notified with the final class assignments.
-
-If rejected, the HOD manually reassigns classes.
-
-Maintains a record of assigned and unassigned classes for reporting.
-
-Workflow (High-Level)
-
-Teacher sends a leave request via Gmail.
-
-System fetches the email and extracts:
-
-Teacher’s email
-
-Leave date
-
-Reason for leave
-
-Queries the database to identify vacant classes.
-
-Finds eligible substitute teachers and sends class allocation emails.
-
-Collects confirmations from substitutes.
-
-Sends HOD approval email with:
-
-List of assigned and unassigned classes
-
-Details of substitutes for each class
-
-Approve/Reject buttons
-
-Based on HOD response:
-
-If approved → leave teacher receives final assignment confirmation.
-
-If rejected → HOD manually handles reassignments.
-
-Technologies Used
-
-Python – Automation, email handling, and backend logic
-
-MySQL – Database for teacher, timetable, and class records
-
-Gmail IMAP – Automatic email retrieval and parsing
-
-Setup & Run (Local Only)
-
-Clone the repository.
-
-Set environment variables:
-
-mysqlpass → MySQL password
-
-emailpass → Gmail app password
-
-Run the main process:
+## Setup & Run (Local Only)
+1. Clone the repository.
+2. Set environment variables:
+   - `mysqlpass` → MySQL password
+   - `emailpass` → Gmail app password
+3. Run the main process:
+```bash
+python run_lms_process.py
+```
+4. System will handle leave detection, substitution, HOD approval, and final notifications automatically.
 
 <img width="950" height="358" alt="image" src="https://github.com/user-attachments/assets/c3af64a6-3054-4cd1-83bf-9c3bb890ca7c" />
 fig 1: Leave request notification email
