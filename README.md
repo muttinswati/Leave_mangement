@@ -1,1 +1,84 @@
 # Leave_mangement
+
+Overview
+
+This project automates the faculty leave management process for educational institutions. It streamlines class substitutions, email notifications, and administrative approvals, reducing manual work and ensuring that all classes are properly assigned when a teacher is on leave.
+
+Key Features:
+
+Detects leave requests sent via Gmail automatically.
+
+Identifies unassigned classes and finds substitute teachers.
+
+Sends detailed email notifications to both the HOD and the teacher on leave.
+
+Allows the HOD to approve or reject the substitution.
+
+If approved, the leave teacher is notified with the final class assignments.
+
+If rejected, the HOD manually reassigns classes.
+
+Maintains a record of assigned and unassigned classes for reporting.
+
+Workflow (High-Level)
+
+Teacher sends a leave request via Gmail.
+
+System fetches the email and extracts:
+
+Teacher’s email
+
+Leave date
+
+Reason for leave
+
+Queries the database to identify vacant classes.
+
+Finds eligible substitute teachers and sends class allocation emails.
+
+Collects confirmations from substitutes.
+
+Sends HOD approval email with:
+
+List of assigned and unassigned classes
+
+Details of substitutes for each class
+
+Approve/Reject buttons
+
+Based on HOD response:
+
+If approved → leave teacher receives final assignment confirmation.
+
+If rejected → HOD manually handles reassignments.
+
+Technologies Used
+
+Python – Automation, email handling, and backend logic
+
+MySQL – Database for teacher, timetable, and class records
+
+Gmail IMAP – Automatic email retrieval and parsing
+
+Setup & Run (Local Only)
+
+Clone the repository.
+
+Set environment variables:
+
+mysqlpass → MySQL password
+
+emailpass → Gmail app password
+
+Run the main process:
+
+<img width="950" height="358" alt="image" src="https://github.com/user-attachments/assets/c3af64a6-3054-4cd1-83bf-9c3bb890ca7c" />
+fig 1: Leave request notification email
+
+<img width="995" height="601" alt="image" src="https://github.com/user-attachments/assets/23420f27-109f-4dc6-b756-adfd3687ecf5" />
+
+<img width="893" height="553" alt="image" src="https://github.com/user-attachments/assets/6b2605cd-8615-477a-8d97-9f56a4fdd5cb" />
+
+<img width="1002" height="446" alt="image" src="https://github.com/user-attachments/assets/34b49a1a-9b66-4df0-88d5-6f454edf5ffc" />
+
+
