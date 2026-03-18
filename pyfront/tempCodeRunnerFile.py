@@ -1,0 +1,1 @@
+my_class=f2.get_vacant_class():
