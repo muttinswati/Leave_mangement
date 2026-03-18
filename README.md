@@ -3,6 +3,11 @@
 ## Overview
 This project automates the **faculty leave management process** for educational institutions. It streamlines class substitutions, email notifications, and administrative approvals, reducing manual work and ensuring that all classes are properly assigned when a teacher is on leave.
 
+**Unique Approach / Highlights**
+- Fully automated leave management **without any front-end interface**.
+- All interactions happen through **Gmail emails**, making it lightweight and easily deployable.
+- Handles **substitute allocation, approval workflow, and notifications** entirely via backend logic.
+
 **Key Features:**
 - Detects leave requests sent via Gmail automatically.
 - Identifies unassigned classes and finds substitute teachers.
